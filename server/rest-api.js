@@ -5,7 +5,7 @@
 module.exports=function(db){
 var express     = require('express'),
     router      = express.Router(),
-    Controller  = require("../controllers/db-controller"),
+    Controller  = require("./db-controller"),
     dbCtrl      = new Controller(db);
 
 //=== set up api routes =========================

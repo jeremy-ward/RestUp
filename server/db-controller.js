@@ -1,5 +1,5 @@
-var Models     = require('../database/Models.js'),
-    popOpt     = require('../database/population/options'),
+var Models     = require('./Models'),
+    popOpt     = require('./popOptions'),
     errHandler = require('./error-handler'); 
 module.exports = function(dbName){
   //===DEV only--prints db collection to console
