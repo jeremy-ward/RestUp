@@ -4,7 +4,8 @@
   "description": "application to generate RESTful API very quickly",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "app.js"
   },
   "author": "Jeremy Ward",
   "license": "ISC",
@@ -12,7 +13,6 @@
     "express": "~4.13.1",
     "method-override": "^2.3.5",
     "mongoose": "^4.2.3",
-    "morgan": "~1.6.1",
     "body-parser": "~1.13.2"
   }
 }
