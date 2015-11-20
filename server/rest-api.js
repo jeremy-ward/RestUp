@@ -2,11 +2,11 @@
 //=== "api/XXXX..."
 
 //=== get required dependencies
-module.exports=function(db){
+module.exports=function(db, models){
 var express     = require('express'),
     router      = express.Router(),
     Controller  = require("./db-controller"),
-    dbCtrl      = new Controller(db);
+    dbCtrl      = new Controller(db, models);
 
 //=== set up api routes =========================
 

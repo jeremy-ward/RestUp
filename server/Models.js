@@ -11,3 +11,13 @@ models.forEach(function(model){
   var curModel = require('../models/'+model);
   module.exports[curModel.name]=curModel.model;
 });
+
+module.exports = function(modelsDir){
+  returnModels ={};
+  models = fs.readdirSync(path.join(__dirname, '../models'));//gets all models out of models folder;
+  models.forEach(function(model){
+    var curModel = require('../models/'+model);
+    returnModels[curModel.name]=curModel.model;
+  });
+  return returnModels;
+}

@@ -1,7 +1,7 @@
-var Models     = require('./Models'),
-    popOpt     = require('./popOptions'),
+var popOpt     = require('./popOptions'),
     errHandler = require('./error-handler'); 
-module.exports = function(dbName){
+module.exports = function(dbName, models){
+  var Models     = require('./Models')(models);
   //===DEV only--prints db collection to console
   this.printDb = function(){
     console.log(dbName);
