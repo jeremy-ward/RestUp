@@ -40,11 +40,12 @@ var fs  = require('fs'),
 
   //start the API with port
   JerAPI.start = function(port){
-    console.log('starting up your API');
+    console.log('Starting RestUp');
     this.connect(); //connect to MongoDB database
     this.api(); //set up express routes for models
+    port = port||this.port;
     app.listen(port||this.port);//uses user provided port or default port if not provided
-    console.log('app listing on', port);  
+    console.log('-- RestUp on port', port, "--");  
   };
   //turn logging on
   //connect to provided MongoDB database
@@ -56,7 +57,7 @@ var fs  = require('fs'),
       mongoose.connect(this.dbUrl);
       // When successfully connected
         mongoose.connection.on('connected', function () {  
-          console.log('DB connected');
+          
         }); 
         // If the connection throws an error 
         mongoose.connection.on('error',function (err) {  
