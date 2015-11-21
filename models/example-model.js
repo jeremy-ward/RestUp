@@ -3,6 +3,7 @@
 //===get the needed tools
 var mongoose   = require('mongoose'),
     Schema     = mongoose.Schema,
+    path       = require('path'),
     validators = require('../server/validators'); //use if you want to add DB validators
 
 //===Set up the customer schema
@@ -14,7 +15,7 @@ var exampleSchema = new Schema({
 });
 
 //=== include custom methods for customer schema
-  require('../server/model-methods.js')(exampleSchema);
+  require(path.join(__dirname, '../server/model-methods.js'))(exampleSchema);
 
 //==export client model
 module.exports={
