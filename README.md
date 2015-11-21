@@ -5,8 +5,8 @@
 <h2>Use</h2>
 <p>To use application user simply add models for the data they wish to save to the models folder and then start the application.</p>
 <h4>Example Model</h4>
-<pre><code>var mongoose   = require('mongoose'),
-      Schema     = mongoose.Schema;
+<pre><code>var mongoose = require('mongoose'),
+    Schema   = mongoose.Schema;
 
   //===Set up the customer schema
   var exampleSchema = new Schema({
@@ -49,7 +49,7 @@ apiBuilder.start();
   <li>models</li>
   <ul>
     <li>Pass a string with the model folder location</li>
-    <li>To ensure functionality pass using path module: <code>path.join(__dirname, 'directoryString')</code></li>;
+    <li>To ensure functionality pass using path module: <code>path.join(__dirname, 'directoryString')</code></li>
     <li>Default directory: <code>/model</code></li>
   </ul>
   <li>APIBase</li>
