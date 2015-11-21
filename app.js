@@ -1,6 +1,8 @@
-var apiBuilder = require('./api-builder'),
+//==Example app.js to configure and start RestUp
+
+var RestUp = require('./RestUp'),
     morgan     = require('morgan');
 
-apiBuilder.set('dbUrl', "mongodb://localhost:27017/test");
-apiBuilder.use(morgan('dev'));
-apiBuilder.start();
+RestUp.set('dbUrl', "mongodb://localhost:27017/test");
+RestUp.use(morgan('dev'));
+RestUp.start();

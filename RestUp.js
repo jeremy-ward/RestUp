@@ -9,7 +9,7 @@ var fs  = require('fs'),
     path           = require('path'),
     port           = process.env.PORT || 8080,
 
-    JerAPI         = {};
+    RestUp         = {};
 
   //Required express middleware
     app.use(bodyParser.json()); //REQUIRED
@@ -17,10 +17,10 @@ var fs  = require('fs'),
     app.use(methodOverride()); 
 
   //default configuration options
-    JerAPI.port= process.env.PORT || 8080; //default port
-    JerAPI.models = path.join(__dirname, "/models"); //default folder for models
-    JerAPI.dbUrl = null;
-    JerAPI.APIBase = "/api/"; //default api url base
+    RestUp.port= process.env.PORT || 8080; //default port
+    RestUp.models = path.join(__dirname, "/models"); //default folder for models
+    RestUp.dbUrl = null;
+    RestUp.APIBase = "/api/"; //default api url base
     
   /* set value of provided property
     properities could be:
@@ -29,17 +29,17 @@ var fs  = require('fs'),
       - dbUrl
       - APIBase
     */
-    JerAPI.set = function(prop, val){
+    RestUp.set = function(prop, val){
       this[prop]=val;
     };
 
   //pass user provided middleware to Express for use
-    JerAPI.use = function(middleware){
+    RestUp.use = function(middleware){
       app.use(middleware);
     };
 
   //start the API with port
-  JerAPI.start = function(port){
+  RestUp.start = function(port){
     console.log('Starting RestUp');
     this.connect(); //connect to MongoDB database
     this.api(); //set up express routes for models
@@ -49,7 +49,7 @@ var fs  = require('fs'),
   };
   //turn logging on
   //connect to provided MongoDB database
-    JerAPI.connect = function(){
+    RestUp.connect = function(){
     //If user has not specificied database url throws error
       if(!this.dbUrl){
         throw new Error ("no database url provided \n set using .set('dbUrl', [db_url])\n");
@@ -66,11 +66,11 @@ var fs  = require('fs'),
     };
 
     //loop through all models and use them in the api
-    JerAPI.api = function(){
+    RestUp.api = function(){
       var models = fs.readdirSync(this.models);
       for(var i=0, x=models.length;i<x;i++){
         var curModel = require(this.models +'/'+models[i]);
         app.use(this.APIBase+curModel.name, API(curModel.name, this.models));
       }
     };
-module.exports=JerAPI;
+module.exports=RestUp;
