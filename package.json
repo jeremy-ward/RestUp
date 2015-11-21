@@ -1,7 +1,8 @@
 {
-  "name": "api-generator",
+  "name": "RestUp",
   "version": "1.0.0",
   "description": "application to generate RESTful API very quickly",
+  "repository" : "https://github.com/jeremy-ward/RestUp.git",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

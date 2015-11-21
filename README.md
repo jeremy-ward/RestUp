@@ -2,6 +2,11 @@
 
 <p>Application quickly generates an RESTful api that enables interaction with a MongoDB database.</p>
 <p>User must provide only the mongoose models to be saved in the database.  For more information on model creation see <a href ="http://mongoosejs.com/docs/guide.html" target ="_blank">Mongoose Guide</a>.</p>
+<h2>Installation</h2>
+<p>Type the following in the command line from the directory you wish to install it to:</p>
+<pre><code>>git clone https://github.com/jeremy-ward/RestUp.git && cd RestUp
+>npm install
+</code></pre>
 <h2>Use</h2>
 <p>To use application user simply add models for the data they wish to save to the models folder and then start the application.</p>
 <h4>Example Model</h4>
@@ -16,7 +21,7 @@
     email: String,
   });
 
-  //==expose client model for use throughout application
+  //==expose model for use throughout application
   module.exports={
     name : 'example', //name should match the string you pass into mongoose.model below
     model: mongoose.model("example", exampleSchema)
@@ -27,7 +32,8 @@
   <ul>
     <li>Include the RestUp into app.js file</li>
     <li>Set the url for the database</li>
-    <li>Starts the api (passing optional </li>
+    <li>Start the api</li>
+  </ul>
 <h5>Simplest app.js to start RestUp:</h5>
 <pre><code>var apiBuilder = require('./api-builder');
 
@@ -60,14 +66,14 @@ apiBuilder.start();
   </ul>
   <li>port</li>
   <ul>
-    <li>Pass a integer with a port number for application to listen on</li>
+    <li>Pass a port number for application to listen on</li>
   </ul>
 </ul>
 <h3><code>RestUp.use(middleware)</code></h3>
-<p>Pass in middleware for use in the application. Use the same as you would in an <a href="http://expressjs.com/api.html#app.use" targer="_blank">ExpressJS application</a>.</p>
+<p>Pass in middleware for use in the application. Use the same as with an <a href="http://expressjs.com/api.html#app.use" targer="_blank">ExpressJS application</a>.</p>
 <h3><code>RestUp.start([port])</code></h3>
 <p>Method to start the application.</p>
-<p>If port number is passed application will listen on that port.  Otherwise default port is <code>process.env.PORT </code>or 8080 if no <code>process.env.PORT</code> is set.</p>
+<p>If port number is passed application will listen on that port.  Otherwise default port is <code>process.env.PORT </code>or <code>8080</code> if no <code>process.env.PORT</code> is set.</p>
 <h2>Example Use</h2>
 <p><b>app.js file:</b></p>
 <pre><code>var RestUp = require('./RestUp'),
